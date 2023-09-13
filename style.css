@@ -1,0 +1,73 @@
+
+.container-fluid a{
+    color:black;
+}
+.navbar{
+    background-color:whitesmoke;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.for{
+    border: 1px solid;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+  
+    margin: 0 auto;
+    margin-top: 80px;
+    
+    padding: 20px;
+   
+    max-width: 400px;
+  }
+  .for input{
+    display: block;
+  
+    margin: 10px 0px;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 18px;
+      font-family: poppins;
+  }
+  .for button {
+      background-color: deepskyblue;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 18px;
+      padding: 10px;
+      margin: 20px 0px;
+  }
+  .for h2{
+    text-align:center;
+    color:white;
+  }
+  .for h5{
+    color: white;
+  }
+
+  table {
+    background-color:#fff;
+    margin: 50px auto; /* Center-align the table horizontally and give it some margin from the top */
+    border-collapse: collapse; /* Collapse the table borders */
+    width: 80%; /* Set the desired width for the table */
+    border: 1px solid #ddd; /* Add a 1px solid border to the entire table */
+}
+
+/* Style for table headers */
+table th {
+    background-color:dimgray;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Style for table cells */
+table td {
+    padding: 8px;
+    border: 1px solid #ddd; /* Add a 1px solid border to table cells */
+}
+
+
