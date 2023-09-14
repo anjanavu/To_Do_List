@@ -5,7 +5,7 @@ document.getElementById('logout').addEventListener('click', function () {
 
 let completedTasks = 0;
 
-document.getElementById('todo-list').addEventListener('click', function() {
+document.getElementById('todo-list').addEventListener('click', function () {
     // Hide other content and show the todo list container
     document.getElementById('todo-list-container').style.display = 'block';
 
@@ -34,7 +34,7 @@ document.getElementById('todo-list').addEventListener('click', function() {
                 if (todo.completed) {
                     completedCheckbox.disabled = true;
                 }
-                completedCheckbox.addEventListener('change', function() {
+                completedCheckbox.addEventListener('change', function () {
                     // Update the completed status when the checkbox changes
                     todo.completed = this.checked;
                     if (this.checked) {
@@ -43,9 +43,7 @@ document.getElementById('todo-list').addEventListener('click', function() {
                         completedTasks--;
                     }
 
-                    if (completedTasks === 5) {
-                        alert(`Congrats....!`);
-                    }
+                    checkCompletedTasks(completedTasks).then(congratulateUser);
                 });
 
                 // Set the column content
@@ -63,4 +61,20 @@ document.getElementById('todo-list').addEventListener('click', function() {
         .catch(error => console.error('Error fetching data:', error));
 });
 
+// Function to check if 5 tasks are completed using a Promise
+function checkCompletedTasks(completedTasks) {
+    return new Promise((resolve) => {
+        if (completedTasks === 5) {
+            resolve(true);
+        } else {
+            resolve(false);
+        }
+    });
+}
 
+// Function to display a congratulatory alert
+function congratulateUser(isCompleted) {
+    if (isCompleted) {
+        alert('Congrats......!');
+    }
+}
