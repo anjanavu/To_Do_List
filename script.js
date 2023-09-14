@@ -6,15 +6,11 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
     // Function to check login credentials
     function checkLogin(username, password, callback) {
         if (username === 'admin' && password === '12345') {
-            // If credentials are valid, call the callback with true
             callback(true);
         } else {
-            // If credentials are invalid, call the callback with false
             callback(false);
         }
     }
-
-    // Callback function for handling login result
     function handleLoginResult(isValid) {
         if (isValid) {
             redirectToMainPage();
