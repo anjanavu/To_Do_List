@@ -70,4 +70,8 @@ table td {
     border: 1px solid #ddd; /* Add a 1px solid border to table cells */
 }
 
-
+#todo-list-table {
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 80%;*/
+} 
