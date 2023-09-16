@@ -49,31 +49,30 @@ document.getElementById('todo-list').addEventListener('click', function () {
     xhttp.send();
 });
 
-
 function handleCheckboxClicks() {
     var checkboxes = document.querySelectorAll("input[type='checkbox']");
     var checkedCount = 0;
-
-    checkboxes.forEach(function (checkbox) {
-        checkbox.addEventListener("click", function () {
-            if (checkbox.checked) {
-                checkedCount++;
-            } else {
-                checkedCount--;
-            }
-
-            
-
-            if (checkedCount === 5) {
-            
-                var promise = new Promise(function (resolve, reject) {
-                    resolve();
-                });
-
-                promise.then(function () {
-                    alert("Congrats. 5 Tasks have been Successfully Completed");
-                });
-            }
-        });
-    });
-}
+  
+    for (var i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].addEventListener("click", function () {
+        if (this.checked) {
+          checkedCount++;
+        } else {
+          checkedCount--;
+        }
+  
+  
+        if (checkedCount === 5) {
+          
+          var promise = new Promise(function (resolve, reject) {
+            resolve();
+          });
+  
+          promise.then(function () {
+            alert("Congrats. 5 Tasks have been Successfully Completed");
+          });
+        }
+      });
+    }
+  }
+  
