@@ -6,7 +6,7 @@ document.getElementById('logout').addEventListener('click', function () {
 let completedTasks = 0;
 
 document.getElementById('todo-list').addEventListener('click', function () {
-    console.log('todo-list clicked'); // Debug statement
+    // console.log('clicked'); 
 
     document.getElementById('todo-list-table').style.display = 'block';
 
@@ -19,18 +19,18 @@ document.getElementById('todo-list').addEventListener('click', function () {
             for (var i = 0; i < response.length; i++) {
                 var row = document.createElement("tr");
 
-                // Create a cell for the task title
+                // title
                 var taskCell = document.createElement("td");
                 taskCell.textContent = response[i].title;
 
-                // Create a cell for the task status
+                // status
                 var statusCell = document.createElement("td");
                 var checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
 
                 if (response[i].completed) {
                     checkbox.checked = true;
-                    checkbox.disabled = true; // Disable the checkbox if completed is true
+                    checkbox.disabled = true; 
                 }
 
                 statusCell.appendChild(checkbox);
@@ -41,7 +41,7 @@ document.getElementById('todo-list').addEventListener('click', function () {
                 tableBody.appendChild(row);
             }
 
-            // Call a function to handle the checkbox clicks
+            
             handleCheckboxClicks();
         }
     };
@@ -49,7 +49,7 @@ document.getElementById('todo-list').addEventListener('click', function () {
     xhttp.send();
 });
 
-// Function to handle checkbox clicks
+
 function handleCheckboxClicks() {
     var checkboxes = document.querySelectorAll("input[type='checkbox']");
     var checkedCount = 0;
@@ -62,10 +62,10 @@ function handleCheckboxClicks() {
                 checkedCount--;
             }
 
-            console.log('Checked count:', checkedCount); // Debug statement
+            
 
             if (checkedCount === 5) {
-                // Create a Promise to show the alert
+            
                 var promise = new Promise(function (resolve, reject) {
                     resolve();
                 });
