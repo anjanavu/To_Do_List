@@ -15,33 +15,21 @@ document.getElementById('todo-list').addEventListener('click', function () {
         if (this.readyState == 4 && this.status == 200) {
             var response = JSON.parse(this.responseText);
             var tableBody = document.getElementById("todo-list-body");
+            tableBody.innerHTML = ''; // Clear existing content
 
             for (var i = 0; i < response.length; i++) {
-                var row = document.createElement("tr");
+                var row = `
+                    <tr>
+                        <td>${response[i].title}</td>
+                        <td>
+                            <input type='checkbox' ${response[i].completed ? 'checked disabled' : ''} />
+                        </td>
+                    </tr>
+                `;
 
-                // title
-                var taskCell = document.createElement("td");
-                taskCell.textContent = response[i].title;
-
-                // status
-                var statusCell = document.createElement("td");
-                var checkbox = document.createElement("input");
-                checkbox.type = "checkbox";
-
-                if (response[i].completed) {
-                    checkbox.checked = true;
-                    checkbox.disabled = true; 
-                }
-
-                statusCell.appendChild(checkbox);
-
-                row.appendChild(taskCell);
-                row.appendChild(statusCell);
-
-                tableBody.appendChild(row);
+                tableBody.innerHTML += row;
             }
 
-            
             handleCheckboxClicks();
         }
     };
@@ -61,9 +49,7 @@ function handleCheckboxClicks() {
           checkedCount--;
         }
   
-  
         if (checkedCount === 5) {
-          
           var promise = new Promise(function (resolve, reject) {
             resolve();
           });
@@ -74,5 +60,4 @@ function handleCheckboxClicks() {
         }
       });
     }
-  }
-  
+}
